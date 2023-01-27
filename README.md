@@ -20,3 +20,6 @@ Using React, build a single-page web application where the user can search locat
 - As a user, I can share my findings with someone else with a share button that copies the link to clipboard.
 - As a user, I can visit the link of the app shared to me by my friend and I should see the same search query, results, and selected result on the page.
 - As a user, I can view my recent searches and clicking on one should return me to that search.
+
+## **Note**
+- Used Math.random() function for generating dummy population figure coz i couldn't found any particular API.
