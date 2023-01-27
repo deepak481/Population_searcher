@@ -99,7 +99,7 @@ export default function MyMap() {
     <Map
       height="100vh"
       center={[markerLocation.lat, markerLocation.lon]}
-      defaultZoom={6}
+      defaultZoom={5}
     >
       <Marker
         width={50}
