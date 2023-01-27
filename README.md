@@ -23,3 +23,6 @@ Using React, build a single-page web application where the user can search locat
 
 ## **Note**
 - Used Math.random() function for generating dummy population figure coz i couldn't found any particular API.
+
+## **To Run Locally**
+- inside base directory : type command "npm run dev" and press Enter
