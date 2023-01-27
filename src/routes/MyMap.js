@@ -8,6 +8,7 @@ export default function MyMap() {
   const [markerColor, setMarkerColor] = useState("");
   const [searchKeyword, setSearchKeyword] = useState(searchKey ?? "");
   const [selectedIndex, setSelectedIndex] = useState(index ?? "");
+  const [isLoading, setIsLoading] = useState(false)
   const [markerLocation, setMarkerLocation] = useState({
     lat: 42.3554,
     lon: -71.0605,
@@ -16,6 +17,7 @@ export default function MyMap() {
   const [textCopied, setTextCopied] = useState(false);
 
   async function fetchData(keyword) {
+    setIsLoading(true)
     var search = "";
     if (keyword) {
       search = keyword;
@@ -64,13 +66,14 @@ export default function MyMap() {
           
           
         setData([...reqFormat]);
+        setIsLoading(false)
       });
   }
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setTextCopied(false);
-    }, 200000);
+    }, 2000);
     return () => clearTimeout(timer);
   }, [textCopied]);
 
@@ -96,7 +99,7 @@ export default function MyMap() {
     <Map
       height="100vh"
       center={[markerLocation.lat, markerLocation.lon]}
-      defaultZoom={5}
+      defaultZoom={6}
     >
       <Marker
         width={50}
@@ -184,6 +187,13 @@ export default function MyMap() {
             </div>
           </div>
         ))}
+        {isLoading ? <div className="d-flex align-items-center justify-content-center resultSearches mx-auto">
+           
+            <div
+            >
+            Loading...
+            </div>
+          </div>: ""}
       {searchKeyword === "" &&
         localStorage.getItem("historySearches") &&
         JSON.parse(localStorage.getItem("historySearches")).searches &&
