@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Map, Marker } from "pigeon-maps";
-import { HOME } from "../utils/constants";
 import "../sass/global.sass";
 export default function MyMap() {
   const { index, searchKey } = useParams();
@@ -38,28 +37,32 @@ export default function MyMap() {
             };
           });
 
-        localStorage.getItem("historySearches") &&
-        JSON.parse(localStorage.getItem("historySearches")).searches
-          ? JSON.parse(
-              localStorage.getItem("historySearches")
-            ).searches.indexOf(searchKeyword) === -1
-            ? localStorage.setItem(
-                "historySearches",
-                JSON.stringify({
-                  searches: [
-                    ...JSON.parse(localStorage.getItem("historySearches"))
-                      .searches,
-                    searchKeyword,
-                  ],
-                })
-              )
-            : ""
-          : localStorage.setItem(
+        if(localStorage.getItem("historySearches") &&
+        JSON.parse(localStorage.getItem("historySearches")).searches){
+          if(JSON.parse(
+            localStorage.getItem("historySearches")
+          ).searches.indexOf(searchKeyword) === -1)
+          {localStorage.setItem(
               "historySearches",
               JSON.stringify({
-                searches: [searchKeyword],
+                searches: [
+                  ...JSON.parse(localStorage.getItem("historySearches"))
+                    .searches,
+                  searchKeyword,
+                ],
               })
-            );
+            )} else {}
+        }else{
+          localStorage.setItem(
+            "historySearches",
+            JSON.stringify({
+              searches: [searchKeyword],
+            })
+          );
+        }
+          
+          
+          
         setData([...reqFormat]);
       });
   }
@@ -67,7 +70,7 @@ export default function MyMap() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setTextCopied(false);
-    }, 20000);
+    }, 200000);
     return () => clearTimeout(timer);
   }, [textCopied]);
 
@@ -146,7 +149,7 @@ export default function MyMap() {
           }}
           onClick={() => {
             navigator.clipboard.writeText(
-              `${HOME}/${searchKeyword}/${selectedIndex}`
+              `${window.location.href}${searchKeyword}/${selectedIndex}`
             );
             setTextCopied(true);
           }}
