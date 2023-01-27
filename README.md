@@ -22,4 +22,4 @@ Using React, build a single-page web application where the user can search locat
 - As a user, I can view my recent searches and clicking on one should return me to that search.
 
 ## **Note**
-- Used random function for generating dummy population figure coz i couldn't found any particular API.
+- Used Math.random() function for generating dummy population figure coz i couldn't found any particular API.
