@@ -2,14 +2,11 @@
 
 Using React, build a single-page web application where the user can search locations and get population information.
 
-## General **Requirements**
+## General **Features**
 
-- Create a hook-based React application using Typescript. You may use CSS helpers like SCSS, Less, or CSS-in-JS, but you may not use component libraries in this project.
+- A hook-based React application. Used Sass for styling.
 - Use a third-party API to search for locations ([Search - Nominatim Documentation](https://nominatim.org/release-docs/latest/api/Search/)).
-- The application should be responsive and work on all browsers.
-- Include a README that details how your application works and how to run your application.
-- Your code should be clean and well organized.
-- The application should strictly be a frontend application. A backend server is not necessary and discouraged.
+- The application is responsive and work on all browsers.
 
 ## **User Stories**
 
