@@ -1,4 +1,4 @@
-## **Task**
+## **About**
 
 Using React, build a single-page web application where the user can search locations and get population information.
 
@@ -22,4 +22,5 @@ Using React, build a single-page web application where the user can search locat
 - Used Math.random() function for generating dummy population figure coz i couldn't found any particular API.
 
 ## **To Run Locally**
+- install dependencies by command: "npm i"
 - inside base directory : type command "npm run dev" and press Enter
